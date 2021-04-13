@@ -6,10 +6,34 @@ body {
   height: 100vh;
   justify-content: center;
   align-items: center;
-  background-color: rgb(239, 243, 245);
+  background-color: rgb(98, 113, 121);
   flex-direction: column;
 }
 
 #welcome {
   width: 50%
+  justify-content: center;
+}
+
+.card {
+padding: 100
+width: 600px;
+height: 300px;
+}
+
+
+h2 {
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+.container {
+  text-align: center;
+}
+
+nav {
+  text-align: right
 }

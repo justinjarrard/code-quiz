@@ -8,6 +8,7 @@ const scoreElement = document.getElementById('score')
 const currentScore = document.getElementById('currentScore')
 const displayScoresElement = document.getElementById('displayScores')
 let score = 0;
+let timerCountdown;
 
 startButton.addEventListener('click', (event) => {
   openerElement.style.display = 'none'
@@ -21,52 +22,52 @@ const questions = [
   {
     question: 'What keyword can you use to define a variable?',
     answers: [
-      { text: 'let', correct: false },
-      { text: 'const', correct: false },
-      { text: 'var', correct: false },
-      { text: 'All of the above', correct: true }
+      { text: 'A) let', correct: false },
+      { text: 'B) const', correct: false },
+      { text: 'C) var', correct: false },
+      { text: 'D) All of the above', correct: true }
     ]
   },
   {
     question: 'What does HTML stand for',
     answers: [
-      { text: 'HighText Maching Language', correct: false },
-      { text: 'Hypertext Markup Language', correct: true },
-      { text: 'Hypertext Manmande Language', correct: false },
-      { text: 'Hypertense Manipulation Level', correct: false }
+      { text: 'A) HighText Maching Language', correct: false },
+      { text: 'B) Hypertext Markup Language', correct: true },
+      { text: 'C) Hypertext Manmande Language', correct: false },
+      { text: 'D) Hypertense Manipulation Level', correct: false }
     ]
   },
   {
     question: 'Which character is used to represent the closing of a tag in HTML',
     answers: [
-      { text: '>', correct: false },
-      { text: '[', correct: false },
-      { text: '}', correct: false },
-      { text: '/', correct: true }
+      { text: 'A) >', correct: false },
+      { text: 'B) [', correct: false },
+      { text: 'C) }', correct: false },
+      { text: 'D) /', correct: true }
     ]
   },
   {
     question: 'Which of the following attribute is used to provide a unique name to an element?',
     answers: [
-      { text: 'class', correct: false },
-      { text: 'id', correct: true },
-      { text: 'type', correct: false },
-      { text: 'none of the above', correct: false }
+      { text: 'A) class', correct: false },
+      { text: 'B) id', correct: true },
+      { text: 'C) type', correct: false },
+      { text: 'D) none of the above', correct: false }
     ]
   },
   {
     question: 'Which of the following HTML attributes is used to define inline styles',
     answers: [
-      { text: 'type', correct: false },
-      { text: 'script', correct: false },
-      { text: 'style', correct: true },
-      { text: 'color', correct: false }
+      { text: 'A) type', correct: false },
+      { text: 'B) script', correct: false },
+      { text: 'C) style', correct: true },
+      { text: 'D) color', correct: false }
     ]
   }
 ]
 
 const questionElement = document.getElementById('questions')
-const questionHeader = document.createElement('h1')
+const questionHeader = document.createElement('h2')
 // WHEN I answer a question
 // THEN I am presented with another question
 
@@ -118,7 +119,7 @@ function getNextQuestion(questionIndex) {
 
 //Start the timer
 function startTimer() {
-  const timerCountdown = setInterval(() => {
+   timerCountdown = setInterval(() => {
     timerElement.textContent = startTime--
     if (startTime < 0) {
       clearInterval(timerCountdown)
@@ -131,6 +132,7 @@ function showScore() {
   questionElement.innerHTML = null;
   scoreElement.style.display = 'block'
   currentScore.textContent = score
+  clearInterval(timerCountdown)
 }
 
 const initialsInput = document.getElementById('initials')
@@ -163,3 +165,6 @@ function displayScores() {
     displayScoresElement.append(scoreElement)
   })
 }
+
+// if (questions.index === questions.length)
+// .setProperty('questions', 'red');
